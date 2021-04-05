@@ -38,9 +38,14 @@ or [Run the trained model by downloading it from this link](https://drive.google
 ### Steps to run the trained model from the provided link
 
 1) Download it 
+```
+!gdown --id 1Ns4Y8ibEQFHZkEBtZrLvbSMzWNWG3TRx
+```
 2) Load it in you notebook using 
 
 ```
+from model import MNISTModel
+
 model = pt.load(path_to_the_downloaded_model)
 ```
 
