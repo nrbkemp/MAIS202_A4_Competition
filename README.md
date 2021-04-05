@@ -53,7 +53,6 @@ model = pt.load(path_to_the_downloaded_model)
 ```
 !wget -O test_x.npy  https://www.dropbox.com/s/qfbaw6a18cthkg4/test_x.npy?dl=0
 test_images = np.load("test_x.npy")
-
 ```
 4) Make inferences by calling the `inference` method as follows:
 ```
@@ -61,7 +60,7 @@ from utils import inference
 
 inference(model, array_of_128x128_images, path_to_save_predictions.csv)
 ```
-Note that the model can only operate on $128 \times 128$ grayscale images.
+Note that the model can only operate on 128 X 128 grayscale images.
 
 5) Downlad the csv files with the results!
 
