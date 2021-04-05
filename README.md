@@ -50,28 +50,13 @@ model = pt.load(path_to_the_downloaded_model)
 test_images = np.load("test_x.npy")
 
 ```
-4) Make inferences using:
+4) Make inferences by calling the `inference` method as follows:
 ```
-from tqdm import tqdm 
+from utils import inference
 
-def inference(model, test_data, file_path):
-    model.eval()
-    device = pt.device('cpu')
-    if pt.cuda.is_available():
-        device = pt.device('cuda')
-    model.to(device)
-    inferences = [["ID", "Category"]]
-    for i, img in enumerate(tqdm(test_data)):
-        input = pt.tensor(img).unsqueeze(0).unsqueeze(0)
-        input = input.to(device)
-        out = int(pt.argmax(model.forward(input)))
-        inferences.append([i, out])
-
-    with open(file_path, 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerows(inferences)
-
-inference(model, test_images_processed, "/content/MNIST_inferences.csv")
+inference(model, array_of_128x128_images, path_to_save_predictions.csv)
 ```
+Note that the model can only operate on $128 \times 128$ grayscale images.
+
 5) Downlad the csv files with the results!
 
