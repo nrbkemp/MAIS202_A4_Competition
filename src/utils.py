@@ -41,11 +41,11 @@ def preprocess(image):
     image = (np.reshape(image, (128, 128)) * 255).astype(np.uint8)  # reshaping
     image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)  # converting to RGB values
     # denoising makes colors more fade
-    image = cv2.fastNlMeansDenoising(image, None, 40, 7, 20)
+    image = cv2.fastNlMeansDenoising(image, None, 60, 7, 20)
     for x in range(len(image)):
         for y in range(len(image[x])):
             for z in range(len(image[x][y])):
-                if image[x][y][z] < 85:  # RGB values 0 to 85 are close to total back
+                if image[x][y][z] < 70:  # RGB values 0 to 85 are close to total back
                     # replacing the black by white (=255); the back is the
                     # digits
                     image[x][y][z] = 255
