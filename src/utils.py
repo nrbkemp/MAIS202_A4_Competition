@@ -3,6 +3,7 @@ import torch.nn as tnn
 import cv2
 import csv
 import numpy as np
+from tqdm import tqdm
 
 
 def conv_layer(chann_in, chann_out, k_size, p_size):

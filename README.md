@@ -44,7 +44,7 @@ or [Run the trained model by downloading it from this link](https://drive.google
 2) Load it in you notebook using 
 
 ```
-from model import MNISTModel
+from model import MNISTClassifier
 
 model = pt.load(path_to_the_downloaded_model)
 ```
